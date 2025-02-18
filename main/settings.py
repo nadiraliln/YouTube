@@ -25,12 +25,12 @@ SECRET_KEY = 'django-insecure-eai%d^g_ybz9%4kxc*!#paml3_1^vnrkx5zdnpz0dg5m6%uw6-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com', 'localhost']
 
 
-# Application definition
-
-INSTALLED_APPS = [
+INSTALLED_APPS = [ 
+    'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
